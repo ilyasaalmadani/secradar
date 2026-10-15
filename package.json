@@ -1,0 +1,31 @@
+{
+  "name": "secradar",
+  "version": "0.1.0",
+  "description": "Local security radar — scan project axes and generate a pure SVG radar chart of your posture.",
+  "bin": {
+    "secradar": "./bin/secradar.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node bin/secradar.js"
+  },
+  "keywords": [
+    "security",
+    "radar",
+    "svg",
+    "visualization",
+    "cli",
+    "ai",
+    "readiness"
+  ],
+  "author": "Ilyas Akbar Almadani",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
