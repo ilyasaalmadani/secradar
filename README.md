@@ -1,75 +1,99 @@
 # secradar
 
-> Local security radar for your project.  
-> Scan multiple axes and generate a pure SVG radar chart of your posture.
+> See your project's security posture as a radar.  
+> One command. Pure SVG. Embeddable. Local.
+
+<div align="center">
+
+![Security Radar](examples/sample-radar.svg)
+
+**Most tools give you a list. secradar gives you a picture.**
 
 ```bash
 npx secradar
 ```
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org/)
+[![Stars](https://img.shields.io/github/stars/ilyasaalmadani/secradar?style=social)](https://github.com/ilyasaalmadani/secradar/stargazers)
 
-## Novelty
+</div>
 
-Most security tools give you a list of findings.  
-**secradar** gives you a visual radar of your security posture across axes (Secrets, Debug, Auth, Config, Hygiene).
+---
 
-The output is a self-contained SVG you can open in a browser or embed directly in a README — no external services, no dashboard to host.
+## Why secradar?
+
+Security findings are usually walls of text.  
+**secradar** turns the same class of risks into a single, shareable radar chart.
+
+- **Secrets** — hardcoded keys and tokens
+- **Debug** — leftover logs and debuggers that can leak data
+- **Auth** — unprotected-looking admin or internal routes
+- **Config** — .env and gitignore hygiene
+- **Deps** — risky dependency patterns
+- **Hygiene** — overall density of the above
+
+Higher on the radar = safer. The SVG is self-contained, so you can drop it into a README, Slack, or a PR description.
 
 ## Quick start
 
 ```bash
 npx secradar
-# or
-npx secradar ./my-project security-radar.svg
+# writes security-radar.svg in the current directory
+
+npx secradar ./my-app my-radar.svg
 ```
 
-This writes `security-radar.svg` in the current directory.
-
-## Example
-
-The generated SVG looks like a classic radar/spider chart:
-
-- Concentric rings for score levels
-- Axes for each security dimension
-- Filled polygon showing relative strength (higher = safer)
-
-Embed it:
+Then embed it:
 
 ```markdown
 ![Security Radar](security-radar.svg)
 ```
 
-## What it measures (current axes)
+## What you get
 
-| Axis     | What higher score means                          |
-|----------|--------------------------------------------------|
-| Secrets  | Fewer hardcoded keys / tokens                    |
-| Debug    | Fewer debug leftovers that could leak data       |
-| Auth     | Fewer unprotected-looking admin/internal routes  |
-| Config   | Better .env / gitignore hygiene                  |
-| Hygiene  | Overall lower risk density                       |
-
-Scores are simple heuristics. They are intentionally lightweight so the radar is fast and local.
+- Pure SVG output (no server, no account, nothing leaves your machine)
+- Overall posture score
+- Six axes that surface the problems AI coding agents most often leave behind
+- Dark, GitHub-friendly aesthetic with subtle glow
 
 ## Relationship to other tools
 
-- **aiship**: focused readiness score + findings list for AI-generated code.
-- **secradar**: visual multi-axis radar of the same class of issues.
-- **SHIPSAFE** (Mac App Store): the full local scanner with 148 checks. This open-source radar does not replace it.
+| Tool | Role |
+|------|------|
+| **secradar** | Visual radar of security posture (this repo) |
+| **aiship** | Text readiness score + findings for AI-generated code |
+| **SHIPSAFE** | Full local Mac scanner (148 checks) |
+
+secradar is the open-source visual layer. It does not replace the deep scanner.
 
 ## Roadmap
 
-- [ ] More precise rules per axis
+- [x] Pure SVG radar chart
+- [x] Multi-axis heuristics
 - [ ] Custom axes via config
-- [ ] Animation / sweep effect in SVG
-- [ ] JSON output for CI
-- [ ] Pre-commit + GitHub Action templates
+- [ ] JSON output
+- [ ] GitHub Action
+- [ ] Optional sweep animation
+
+## Contributing
+
+PRs welcome. Especially useful:
+
+- Better detection rules per axis
+- Additional visual themes
+- Fixtures that show clear before/after radars
 
 ## License
 
-MIT © Ilyas Akbar Almadani
+MIT © [Ilyas Akbar Almadani](https://github.com/ilyasaalmadani)
 
 ---
 
-Built by [Ilyas Almadani](https://github.com/ilyasaalmadani). Visual open-source radar — the deep scanner stays in SHIPSAFE.
+<div align="center">
+
+**Built for developers who want their security posture to be visible, not just listed.**
+
+Star the repo if the radar is useful — it helps others find it.
+
+</div>
